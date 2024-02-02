@@ -14,12 +14,12 @@
     <title>PHPJabbers.com | Free Job Agency Website Template</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{asset('/ui-panel/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="{{asset('/ui-panel/assets/css/fontawesome.css')}}">
+    <link rel="stylesheet" href="{{asset('/ui-panel/assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('/ui-panel/assets/css/owl.css')}}">
 
   </head>
 
@@ -51,7 +51,7 @@
                     </a>
                 </li> 
 
-                <li class="nav-item active"><a class="nav-link" href="jobs.html">Jobs</a></li>
+                <li class="nav-item active"><a class="nav-link" href="{{url("/jobs")}}">Jobs</a></li>
 
                 <li class="nav-item"><a class="nav-link" href="about-us.html">About us</a></li>
 
@@ -75,7 +75,7 @@
     </header>
 
     <!-- Page Content -->
-    <div class="page-heading about-heading header-text" style="background-image: url(assets/images/heading-6-1920x500.jpg);">
+    <div class="page-heading about-heading header-text" style="background-image: url(ui-panel/assets/images/heading-6-1920x500.jpg);">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
@@ -240,9 +240,9 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="product-item">
-                  <a href="job-details.html"><img src="assets/images/product-1-370x270.jpg" alt=""></a>
+                  <a href="{{url("/job-details")}}"><img src="ui-panel/assets/images/product-1-370x270.jpg" alt=""></a>
                   <div class="down-content">
-                    <a href="job-details.html"><h4>Lorem ipsum dolor sit amet</h4></a>
+                    <a href="{{url("/job-details")}}"><h4>Lorem ipsum dolor sit amet</h4></a>
 
                     <h6>$60 000</h6>
 
@@ -259,9 +259,9 @@
 
               <div class="col-md-6">
                 <div class="product-item">
-                  <a href="job-details.html"><img src="assets/images/product-2-370x270.jpg" alt=""></a>
+                  <a href="{{url("/job-details")}}"><img src="ui-panel/assets/images/product-2-370x270.jpg" alt=""></a>
                   <div class="down-content">
-                    <a href="job-details.html"><h4>Lorem ipsum dolor sit amet</h4></a>
+                    <a href="{{url("/job-details")}}"><h4>Lorem ipsum dolor sit amet</h4></a>
 
                     <h6>$60 000</h6>
 
@@ -278,9 +278,9 @@
 
               <div class="col-md-6">
                 <div class="product-item">
-                  <a href="job-details.html"><img src="assets/images/product-3-370x270.jpg" alt=""></a>
+                  <a href="{{url("/job-details")}}"><img src="/ui-panel/assets/images/product-3-370x270.jpg" alt=""></a>
                   <div class="down-content">
-                    <a href="job-details.html"><h4>Lorem ipsum dolor sit amet</h4></a>
+                    <a href="{{url("/job-details")}}"><h4>Lorem ipsum dolor sit amet</h4></a>
 
                     <h6>$60 000</h6>
 
@@ -297,9 +297,9 @@
 
               <div class="col-md-6">
                 <div class="product-item">
-                  <a href="job-details.html"><img src="assets/images/product-4-370x270.jpg" alt=""></a>
+                  <a href="{{url("/job-details")}}"><img src="ui-panel/assets/images/product-4-370x270.jpg" alt=""></a>
                   <div class="down-content">
-                    <a href="job-details.html"><h4>Lorem ipsum dolor sit amet</h4></a>
+                    <a href="{{url("/job-details")}}"><h4>Lorem ipsum dolor sit amet</h4></a>
 
                     <h6>$60 000</h6>
 
@@ -316,9 +316,9 @@
 
               <div class="col-md-6">
                 <div class="product-item">
-                  <a href="job-details.html"><img src="assets/images/product-5-370x270.jpg" alt=""></a>
+                  <a href="{{url("/job-details")}}"><img src="ui-panel/assets/images/product-5-370x270.jpg" alt=""></a>
                   <div class="down-content">
-                    <a href="job-details.html"><h4>Lorem ipsum dolor sit amet</h4></a>
+                    <a href="{{url("/job-details")}}"><h4>Lorem ipsum dolor sit amet</h4></a>
 
                     <h6>$60 000</h6>
 
@@ -447,13 +447,13 @@
 
 
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{asset('ui-panel/vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('ui-panel/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
 
     <!-- Additional Scripts -->
-    <script src="assets/js/custom.js"></script>
-    <script src="assets/js/owl.js"></script>
+    <script src="{{asset('ui-panel/assets/js/custom.js')}}"></script>
+    <script src="{{asset('ui-panel/assets/js/owl.js')}}"></script>
   </body>
 
 </html>
