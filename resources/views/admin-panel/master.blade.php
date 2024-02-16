@@ -1,5 +1,8 @@
 <!doctype html>
 <html class="no-js" lang="en">
+    @php
+    use Illuminate\Support\Facades\Auth;
+    @endphp
 
 <head>
     <meta charset="utf-8">
@@ -73,13 +76,13 @@
     <div class="left-sidebar-pro">
         <nav id="sidebar" class="">
             <div class="sidebar-header">
-                <a href="index.html"><img class="main-logo" src="{{asset('admin-panel/img/logo/logo.png')}}" alt="" /></a>
+                <a href="{{ route('dashboard')}}"><img class="main-logo" src="{{asset('admin-panel/img/logo/logo.png')}}" alt="" /></a>
                 <strong><img src="{{asset('admin-panel/img/logo/logosn.png')}}" alt="" /></strong>
             </div>
 			<div class="nalika-profile">
 				<div class="profile-dtl">
-					<a href="#"><img src="{{asset('admin-panel/img/notification/4.jpg')}}" alt="" /></a>
-					<h2>Lakian <span class="min-dtn">Das</span></h2>
+					<a href="{{ route('dashboard')}}"><img src="{{asset('admin-panel/img/notification/4.jpg')}}" alt="" /></a>
+					<a href="#"><h2>{{ Auth::user()->name }}</h2></a>
 				</div>
 				<div class="profile-social-dtl">
 					{{-- <ul class="dtl-social">
@@ -93,13 +96,13 @@
                 <nav class="sidebar-nav left-sidebar-menu-pro">
                     <ul class="metismenu" id="menu1">
                         <li class="active">
-                            <a class="has-arrow" href="index.html">
+                            <a href="{{route('payments')}}">
 								   <i class="icon nalika-home icon-wrap"></i>
-								   <span class="mini-click-non">Ecommerce</span>
+								   <span class="mini-click-non">Payments</span>
 							</a>
-                            <ul class="submenu-angle" aria-expanded="true">
+                            {{-- <ul class="submenu-angle" aria-expanded="true">
                                 <li><a title="Dashboard v.1" href="index.html"><span class="mini-sub-pro">Dashboard v.1</span></a></li>
-                            </ul>
+                            </ul> --}}
                         </li>
                         {{-- <li>
                             <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="icon nalika-mail icon-wrap"></i> <span class="mini-click-non">Mailbox</span></a>
@@ -108,13 +111,14 @@
                             </ul>
                         </li> --}}
                         <li>
-                            <a href="mailbox.html" aria-expanded="false"><i class="icon nalika-diamond icon-wrap"></i> <span class="mini-click-non">Interface</span></a>
-                            <ul class="submenu-angle" aria-expanded="false">
-                                <li><a title="Google Map" href="google-map.html"><span class="mini-sub-pro">Google Map</span></a></li>
-                            </ul>
+                            <a href="{{ route('categories.index')}}" aria-expanded="false"><i class="icon nalika-diamond icon-wrap"></i> <span class="mini-click-non">Job Categories</span></a>
+                        </li>
+                        <h4>Employer</h4>
+                        <li id="removable">
+                            <a href="#" aria-expanded="false"><i class="icon nalika-new-file icon-wrap"></i> <span class="mini-click-non">Profile</span></a>
                         </li>
                         <li id="removable">
-                            <a href="#" aria-expanded="false"><i class="icon nalika-new-file icon-wrap"></i> <span class="mini-click-non">Pages</span></a>
+                            <a href="{{ route('jobs.index')}}" aria-expanded="false"><i class="icon nalika-new-file icon-wrap"></i> <span class="mini-click-non">JOB</span></a>
                         </li>
                     </ul>
                 </nav>
@@ -139,19 +143,19 @@
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="header-top-wraper">
                                 <div class="row">
-                                    <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                    {{-- <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
                                         <div class="menu-switcher-pro">
                                             <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
 													<i class="icon nalika-menu-task"></i>
 											</button>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
                                         <div class="header-top-menu tabl-d-n hd-search-rp">
                                             <div class="breadcome-heading">
 												<form role="search" class="">
 													<input type="text" placeholder="Search..." class="form-control">
-													<a href=""><i class="fa fa-search"></i>fa</a>
+													<a href=""><i class="fa fa-search"></i></a>
 												</form>
 											</div>
                                         </div>
@@ -163,14 +167,24 @@
                                                 <li class="nav-item">
                                                     <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
 															{{-- <i class="icon nalika-user"></i> --}}
-															<span class="admin-name">Advanda Cro</span>
+                                                            {{-- <span class="admin-name"> hjhwfj</span> --}}
+                                                            @if(Auth::check() && Auth::user())
+                                                                <span class="admin-name">{{ Auth::user()->name }}</span>
+                                                            @else
+                                                                <span class="admin-name">Guest User</span>
+                                                            @endif
 															{{-- <i class="icon nalika-down-arrow nalika-angle-dw"></i> --}}
-														</a>
-                                                    <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
-                                                        <li><a href="#"><span class="icon nalika-user author-log-ic"></span> My Profile</a>
-                                                        </li>
-                                                        <li><a href="login.html"><span class="icon nalika-unlocked author-log-ic"></span> Log Out</a>
-                                                        </li>
+													</a>
+                                                    <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">  
+                                                        <form action="{{ route('logout')}}" method="post">
+                                                            @csrf
+                                                            <li><a href="#"><span class="icon nalika-user author-log-ic"></span> My Profile</a>
+                                                            </li>
+                                                            <li>
+                                                                {{-- <a href="#"><span class="icon nalika-unlocked author-log-ic"></span> Log Out</a> --}}
+                                                                <button class="btn btn-primary" onclick="return confirm('Are you sure to logout?')"><span class="icon nalika-unlocked author-log-ic"></span>Logout</button>
+                                                            </li>
+                                                        </form>
                                                     </ul>
                                                 </li>
                                                 {{-- <li class="nav-item nav-setting-open"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="icon nalika-menu-task"></i></a>
@@ -708,7 +722,7 @@
 												<i class="icon nalika-home"></i>
 											</div>
 											<div class="breadcomb-ctn">
-												<h2>Dashboard One</h2>
+												<a href="{{route('dashboard')}}"><h2>Dashboard One</h2></a>
 												<p>Welcome to Nalika <span class="bread-ntd">Admin Template</span></p>
 											</div>
 										</div>
@@ -803,7 +817,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-11 col-md-9 col-sm-9 col-xs-12">
-                        <div class="product-sales-chart">
+                        <div class="product-sales-chart" style="color: aliceblue">
                             <div class="portlet-title">
                                 <div>
                                     @yield('content')

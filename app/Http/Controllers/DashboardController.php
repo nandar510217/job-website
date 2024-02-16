@@ -10,5 +10,12 @@ class DashboardController extends Controller
         return view('admin-panel.index');
     }
 
+    public function payment () {
+        return view('admin-panel.payment');
+    }
+
+    public function paymentInfo () {
+        return view('admin-panel.paymentInfo');
+    }
     
 }

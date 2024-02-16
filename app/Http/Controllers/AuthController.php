@@ -15,7 +15,6 @@ class AuthController extends Controller
 
     public function loginCreate(Request $request)
     {
-
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
@@ -23,17 +22,22 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
-            if($user->role == 'employer') {
+            if($user->role === 'employee') {
                 return redirect()->route('index');
             }
             // elseif($user->role == 'employee'){
             //     return redirect()->route('index');
             // }
             else {
-                return redirect()->route('index');
-            }
-            
+                return redirect()->route('dashboard');
+            }    
+            // return redirect()->route('index');
         }
+    }
+
+    public function logout() {
+        Auth::logout();
+        return redirect()->route('login');
     }
 
     public function register() {

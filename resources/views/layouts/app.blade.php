@@ -54,9 +54,10 @@
 
                 <li class="nav-item"><a class="nav-link" href="about-us.html">About us</a></li>
 
-                <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('login')}}">Sign In</a></li>
 
-                <li class="nav-item dropdown">
+                <li class="nav-item"><a class="nav-link" href="{{ route('register')}}">Sign Up</a></li>
+                {{-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">More</a>
                     
                     <div class="dropdown-menu">
@@ -64,9 +65,8 @@
                       <a class="dropdown-item" href="testimonials.html">Testimonials</a>
                       <a class="dropdown-item" href="terms.html">Terms</a>
                     </div>
-                </li>
+                </li> --}}
                 
-                <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
             </ul>
           </div>
         </div>
@@ -334,7 +334,7 @@
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque corporis amet elite author nulla.</p>
                 </div>
                 <div class="col-lg-4 col-md-6 text-right">
-                  <a href="contact.html" class="filled-button">Contact Us</a>
+                  <a href="contact.html" class="filled-button">Sign Up</a>
                 </div>
               </div>
             </div>

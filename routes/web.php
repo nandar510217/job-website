@@ -5,7 +5,8 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\UiController;
+use App\Http\Controllers\ui\JobController;
+use App\Http\Controllers\ui\UiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,11 +29,20 @@ Route::get('/login',[ AuthController::class, 'login'])->name('login');
 Route::post('/login',[ AuthController::class, 'loginCreate'])->name('login');
 Route::get('/register',[ AuthController::class, 'register'])->name('register');
 Route::post('/register',[ AuthController::class, 'registerCreate'])->name('register');
+Route::post('/logout',[ AuthController::class, 'logout'])->name('logout');
+
 
 //admin panel
 Route::group(['prefix'=> 'admin'], function(){
     Route::get('/dashboard',[ DashboardController::class, 'index'])->name('dashboard');
+    Route::get('payments',[ DashboardController::class, 'payment'])->name('payments');
+    Route::get('payments/payment-info',[ DashboardController::class, 'paymentInfo'])->name('paymentInfo');
+
+    //job categories crud
     Route::resource('categories', CategoryController::class);
+
+    //job crud
+    Route::resource('jobs', JobController::class);
 });
 
 //ui panel

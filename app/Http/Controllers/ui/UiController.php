@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\ui;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class UiController extends Controller
