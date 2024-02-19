@@ -48,4 +48,6 @@ Route::group(['prefix'=> 'admin'], function(){
 //ui panel
 Route::get('/',[ UiController::class, 'index'])->name('index');
 Route::get('/jobs',[ UiController::class, 'jobs'])->name('jobs');
+Route::get('/getRelatedJobs/{id?}',[ UiController::class, 'getRelatedJobs'])->name('getRelatedJobs');
 Route::get('/job-details',[ UiController::class, 'detail'])->name('job.details');
+

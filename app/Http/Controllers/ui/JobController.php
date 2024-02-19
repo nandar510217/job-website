@@ -48,7 +48,7 @@ class JobController extends Controller
      */
     public function show(string $id)
     {
-        //
+       
     }
 
     /**
