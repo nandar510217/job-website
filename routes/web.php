@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApplicationController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\DashboardController;
@@ -49,5 +50,9 @@ Route::group(['prefix'=> 'admin'], function(){
 Route::get('/',[ UiController::class, 'index'])->name('index');
 Route::get('/jobs',[ UiController::class, 'jobs'])->name('jobs');
 Route::get('/getRelatedJobs/{id?}',[ UiController::class, 'getRelatedJobs'])->name('getRelatedJobs');
+Route::get('/about',[ UiController::class, 'about'])->name('about');
 Route::get('/job-details',[ UiController::class, 'detail'])->name('job.details');
+Route::get('/application/{id}',[ ApplicationController::class, 'application'])->name('application');
+Route::post('/application/store',[ ApplicationController::class, 'applicationStore'])->name('applicationStore');
+
 
